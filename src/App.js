@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import Tool from './tool/Tool.js'
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="App footer-fixed">
+      <header class="app-header navbar">
+        <span class="navbar-brand mb-0 h1">Tool Hub</span>
       </header>
+      <div class="app-body">
+        <main class="main">
+          <Tool/>
+        </main>
+      </div>
+      <footer class="app-footer">
+       <React.Fragment>
+        <span>Tool Hub &copy; 2019.</span>
+        <span className="ml-auto">Powered by <a href="https://coreui.io/react">CoreUI for React</a></span>
+      </React.Fragment> 
+      </footer>
     </div>
   );
 }
