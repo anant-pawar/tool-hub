@@ -6,7 +6,7 @@ class Tool extends React.Component {
     super();
 
     this.state = {
-      toolGroups : []
+      toolGroups: []
     };
 
     fetch('assets/toolGroups.json')
@@ -30,7 +30,9 @@ class Tool extends React.Component {
             <img className="card-img-top card-img" src={tool.image} alt={tool.name} />
           </a>
           <div className="card-body">
-            <h5 className="card-title">{tool.name}</h5>
+            <a href={tool.link} target="_blank">
+              <h5 className="card-title">{tool.name}</h5>
+            </a>
             <p className="card-text">{tool.description}</p>
           </div>
         </div>

@@ -1,13 +1,19 @@
 {
     "toolGroups": [
         {
-            "name": "Formatting",
+            "name": "Utilities",
             "tools": [
                 {
                     "name": "Haste Bin",
                     "description": "Paste bin for your code",
                     "image": "/assets/images/hastebin.jfif",
                     "link": "https://hastebin.com"
+                },
+                {
+                    "name": "Json Formatter",
+                    "description": "Format Json",
+                    "image": "/assets/images/json.gif",
+                    "link": "https://jsonformatter.curiousconcept.com"
                 }
             ]
         }
