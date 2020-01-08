@@ -5,15 +5,15 @@ import './App.css';
 function App() {
   return (
     <div className="App footer-fixed">
-      <header class="app-header navbar">
-        <span class="navbar-brand mb-0 h1">Tool Hub</span>
+      <header className="app-header navbar">
+        <span className="navbar-brand mb-0 h1">Tool Hub</span>
       </header>
-      <div class="app-body">
-        <main class="main">
+      <div className="app-body">
+        <main className="main">
           <Tool/>
         </main>
       </div>
-      <footer class="app-footer">
+      <footer className="app-footer">
        <React.Fragment>
         <span>Tool Hub &copy; 2019.</span>
         <span className="ml-auto">Powered by <a href="https://coreui.io/react">CoreUI for React</a></span>

@@ -1,118 +1,37 @@
 import React from 'react';
+import "./Tool.css";
 
 class Tool extends React.Component {
   constructor() {
     super();
 
-    this.toolGroups = [
-      {
-        name: "Formatting",
-        tools: [
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          }
-        ]
-      },
-      {
-        name: "Formatting",
-        tools: [
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          },
-          {
-            name: "Haste Bin",
-            description: "Paste bin for your code",
-            image: "/images/hastebin.jfif",
-            link: "https://hastebin.com"
-          }
-        ]
-      }
-    ]
+    this.state = {
+      toolGroups : []
+    };
 
+    fetch('assets/toolGroups.json')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
+          toolGroups: data.toolGroups
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
   }
 
   getToolsTemplate(tools) {
     const toolsTemplate = tools.map((tool) =>
-      <div class="col-sm-2">
-        <div class="card">
+      <div className="col-sm-2">
+        <div className="card">
           <a href={tool.link} target="_blank">
-            <img class="card-img-top" src={tool.image} alt={tool.name} />
+            <img className="card-img-top card-img" src={tool.image} alt={tool.name} />
           </a>
-          <div class="card-body">
-            <h5 class="card-title">{tool.name}</h5>
-            <p class="card-text">{tool.description}</p>
+          <div className="card-body">
+            <h5 className="card-title">{tool.name}</h5>
+            <p className="card-text">{tool.description}</p>
           </div>
         </div>
       </div>
@@ -125,12 +44,12 @@ class Tool extends React.Component {
 
   getToolGroupsTemplate(toolGroups) {
     const toolGroupsTemplate = toolGroups.map((toolGroup) =>
-      <div class="card" >
-        <div class="card-header">
+      <div className="card" >
+        <div className="card-header">
           {toolGroup.name}
         </div>
-        <div class="card-body">
-          <div class="row">
+        <div className="card-body">
+          <div className="row">
             {this.getToolsTemplate(toolGroup.tools)}
           </div>
         </div>
@@ -144,7 +63,9 @@ class Tool extends React.Component {
 
   render() {
     return (
-      this.getToolGroupsTemplate(this.toolGroups)
+      <div className="cardGroups">
+        {this.getToolGroupsTemplate(this.state.toolGroups)}
+      </div>
     );
   }
 }

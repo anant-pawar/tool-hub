@@ -1,0 +1,15 @@
+{
+    "toolGroups": [
+        {
+            "name": "Formatting",
+            "tools": [
+                {
+                    "name": "Haste Bin",
+                    "description": "Paste bin for your code",
+                    "image": "/assets/images/hastebin.jfif",
+                    "link": "https://hastebin.com"
+                }
+            ]
+        }
+    ]
+}
